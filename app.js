@@ -4,14 +4,24 @@ var budgetController = (function(){
 })();
 
 var UIController = (function(){
+
+  var DOMstring ={
+    inputType:".add__type",
+    inputDescription: ".add__description",
+    inputValue: ".add__value",
+    inputBtn: ".add__btn"
+  }
   return {
     getinput :function(){
       return {
-        type:document.querySelector(".add__type").value,
-        description: document.querySelector(".add__description").value,
-        value: document.querySelector(".add__value").value
+        type:document.querySelector(DOMstring.inputType).value,
+        description: document.querySelector(DOMstring.inputDescription).value,
+        value: document.querySelector(DOMstring.inputValue).value
       }
 
+    },
+    getDOMstring: function(){
+      return DOMstring;
     }
   }
 
@@ -22,11 +32,12 @@ var UIController = (function(){
 
 
 var controller  = (function(budgetCtrl, UICtrl){
+  var DOM = UICtrl.getDOMstring();
   var ctrlAddItem = function(){
     var input = UIController.getinput();
     console.log(input);
   }
-document.querySelector(".add__btn").addEventListener("click", ctrlAddItem);
+document.querySelector(DOM.inputBtn).addEventListener("click", ctrlAddItem);
   // var money = document.getElementById('amount').value;
   //1. get the filed input data
   //2 add the item to budget controller
