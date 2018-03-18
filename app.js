@@ -40,11 +40,11 @@ var controller  = (function(budgetCtrl, UICtrl){
         ctrlAddItem();
       }
     });
-  }
+  };
+
 
   var ctrlAddItem = function(){
     var input = UIController.getinput();
-    console.log(input);
   }
   // var money = document.getElementById('amount').value;
   //1. get the filed input data
@@ -53,6 +53,14 @@ var controller  = (function(budgetCtrl, UICtrl){
   //4 calculate the budget
   //5 Display the budget on the UI
 
-});
+// });
+
+return {
+  init: function(){
+    setupEventListeners();
+  }
+};
 
 })(budgetController, UIController);
+
+controller.init();
