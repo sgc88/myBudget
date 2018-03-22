@@ -48,7 +48,6 @@ return {
   },
   testing : function(){
     console.log(data);
-  }
 }
 })();
 
@@ -69,6 +68,29 @@ var UIController = (function(){
       }
 
     },
+    addListItem: function(obj, type){
+      var html;
+
+        // create HTML string with placehoder text
+        if(type === "inc"){
+          html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+
+        }else if(type === "exp"){
+          html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        };
+
+
+        // replace the placehoder text with some actaul sata
+        newHtml = html.replace("%id%", obj.id);
+        newHtml = newHtml.replace("%value%", obj.value);
+        newHtml = newHtml.replace("%description%", obj.description);
+
+
+
+        // insert the HTML into DOM
+
+    }
+
     getDOMstring: function(){
       return DOMstring;
     }
