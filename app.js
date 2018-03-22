@@ -49,6 +49,8 @@ return {
   testing : function(){
     console.log(data);
 }
+
+}
 })();
 
 var UIController = (function(){
@@ -57,7 +59,9 @@ var UIController = (function(){
     inputType:".add__type",
     inputDescription: ".add__description",
     inputValue: ".add__value",
-    inputBtn: ".add__btn"
+    inputBtn: ".add__btn",
+    incomeContainer: ".income__list",
+    expensesContainer: ".expenses__list"
   }
   return {
     getinput :function(){
@@ -69,13 +73,15 @@ var UIController = (function(){
 
     },
     addListItem: function(obj, type){
-      var html;
+      var html, newHtml, element;
 
         // create HTML string with placehoder text
         if(type === "inc"){
+          element = DOMstring.incomeContainer;
           html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
 
         }else if(type === "exp"){
+            element = DOMstring.expensesContainer;
           html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
         };
 
@@ -88,16 +94,14 @@ var UIController = (function(){
 
 
         // insert the HTML into DOM
+        document.querySelector(element).insertAdjacentHTML("beforeend", newHtml);
 
-    }
+    },
 
     getDOMstring: function(){
       return DOMstring;
     }
-  }
-
-
-
+  };
 
 })();
 
@@ -121,6 +125,7 @@ var controller  = (function(budgetCtrl, UICtrl){
     //2 add the item to budget controller
      newItem= budgetCtrl.addItem(input.type, input.description, input.value);
     //3 add the item to the UI
+    UICtrl.addListItem(newItem, input.type);
     //4 calculate the budget
     //5 Display the budget on the UI
   };
