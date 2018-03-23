@@ -98,6 +98,13 @@ var UIController = (function(){
 
     },
 
+    clearFields: function(){
+      var fields, fieldArray;
+      fileds = document.querySelectorAll(DOMstring.inputDescription + "," + DOMstring.inputValue);
+
+      fieldArray = Array.prototype.slice.call(fields);
+    },
+
     getDOMstring: function(){
       return DOMstring;
     }
