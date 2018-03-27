@@ -145,14 +145,18 @@ var updateBudget = function(){
     var input, newItem
     //1. get the filed input data
       input = UIController.getinput();
-    //2 add the item to budget controller
-     newItem= budgetCtrl.addItem(input.type, input.description, input.value);
-    //3 add the item to the UI
-    UICtrl.addListItem(newItem, input.type);
-    //we need to clear the field
-    UICtrl.clearFields();
-    //4 calculate the budget
-    //5 Display the budget on the UI
+      if(input.description !== "" && !isNaN(input.value) && input.value > 0){
+        //2 add the item to budget controller
+         newItem= budgetCtrl.addItem(input.type, input.description, input.value);
+        //3 add the item to the UI
+        UICtrl.addListItem(newItem, input.type);
+        //we need to clear the field
+        UICtrl.clearFields();
+        //4 calculate the budget
+        //5 Display the budget on the UI
+      
+      }
+
   };
 
 

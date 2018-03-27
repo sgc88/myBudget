@@ -5,3 +5,6 @@
 //parseFloat - to convert string to a number
 // forEach method to loop through the user input
 //clearFields()
+
+// convert fields inputs to numbers
+// prevent false input
