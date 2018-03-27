@@ -16,6 +16,14 @@ var allIncomes = [];
 var totalExpenses = 0;
 var totalIncomes = 0;
 
+var calculateTotal = function(type){
+  var sum = 0;
+  data.allItems[type].forEach(function(cur){
+    sum += cur.value;
+  });
+  data.totals[type] = sum;
+}
+
 var data = {
   allItems:{
     exp:[],
@@ -46,6 +54,14 @@ return {
     data.allItems[type].push(newItem);
     return newItem;
   },
+
+  calculateBudget: function(){
+    // calculate totalincome and expenses
+
+    // calculate the budget: income - expenses
+    // calculate the percentage of income that we spent
+
+  }
   testing : function(){
     console.log(data);
 }
@@ -131,6 +147,8 @@ var controller  = (function(budgetCtrl, UICtrl){
 
 var updateBudget = function(){
   //calculate the budget
+  calculateTotal('exp');
+  calculateTotal('inc');
 
 
   // return the budget
@@ -154,7 +172,7 @@ var updateBudget = function(){
         UICtrl.clearFields();
         //4 calculate the budget
         //5 Display the budget on the UI
-      
+
       }
 
   };
