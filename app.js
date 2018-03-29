@@ -66,7 +66,16 @@ return {
     // calculate the percentage of income that we spent
     data.percentage = Math.round((data.total.exp / data.total.inc) * 100);
 
-  }
+  },
+
+  getBudget: function(){
+    return{
+      budget: data.budget,
+      totalInc: data.totals.inc,
+      totalExp: data.total.exp,
+      percentage: data.percentage
+    }
+  },
   testing : function(){
     console.log(data);
 }
@@ -152,14 +161,14 @@ var controller  = (function(budgetCtrl, UICtrl){
 
 var updateBudget = function(){
   //calculate the budget
-  calculateTotal('exp');
-  calculateTotal('inc');
+budgetCtrl.calculateBudget();
 
 
   // return the budget
-
+var budget = budgetCtrl.getBudget();
 
   // display the budget on UI
+  console.log(budget);
 
 
 };
