@@ -29,7 +29,7 @@ var data = {
     exp:[],
     inc: []
   },
-  total:{
+  totals:{
     exp: 0,
     inc:0
   },
@@ -64,7 +64,12 @@ return {
     // calculate the budget: income - expenses
     data.budget = data.totals.inc - data.totals.exp;
     // calculate the percentage of income that we spent
-    data.percentage = Math.round((data.total.exp / data.total.inc) * 100);
+    if(data.totals.inc > 0){
+      data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+
+    }else{
+      data.percentage = -1;
+    }
 
   },
 
@@ -72,9 +77,9 @@ return {
     return{
       budget: data.budget,
       totalInc: data.totals.inc,
-      totalExp: data.total.exp,
+      totalExp: data.totals.exp,
       percentage: data.percentage
-    }
+    };
   },
   testing : function(){
     console.log(data);
@@ -185,6 +190,7 @@ var budget = budgetCtrl.getBudget();
         //we need to clear the field
         UICtrl.clearFields();
         //4 calculate the budget
+        updateBudget();
         //5 Display the budget on the UI
 
       }
