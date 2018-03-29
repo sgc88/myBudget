@@ -32,7 +32,9 @@ var data = {
   total:{
     exp: 0,
     inc:0
-  }
+  },
+  budget:0,
+  percentage: -1
 };
 
 return {
@@ -57,9 +59,12 @@ return {
 
   calculateBudget: function(){
     // calculate totalincome and expenses
-
+    calculateTotal("exp");
+    calculateTotal("inc");
     // calculate the budget: income - expenses
+    data.budget = data.totals.inc - data.totals.exp;
     // calculate the percentage of income that we spent
+    data.percentage = Math.round((data.total.exp / data.total.inc) * 100);
 
   }
   testing : function(){
