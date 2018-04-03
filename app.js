@@ -118,11 +118,11 @@ var UIController = (function(){
         // create HTML string with placehoder text
         if(type === "inc"){
           element = DOMstring.incomeContainer;
-          html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+          html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
 
         }else if(type === "exp"){
             element = DOMstring.expensesContainer;
-          html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+          html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
         };
 
 
@@ -219,7 +219,20 @@ UICtrl.displayBudget(budget);
   };
 
 var ctrlDeleteItem = function(event){
-  console.log(event.target);
+  var itemId, splitID, type, ID;
+  itemId = event.target.parentNode.parentNode.parentNode.parentNode.id;
+  if(itemId){
+    splitID = itemId.split("-");
+    type = splitID[0];
+    ID = splitID[1];
+
+    // delete item from data
+
+    // dlete item from UI
+
+
+    // update nd show the new budget in UI
+  }
 }
 // });
 
