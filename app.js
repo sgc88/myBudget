@@ -57,6 +57,22 @@ return {
     return newItem;
   },
 
+  deleteItem: function(type, id){
+    var ids, index;
+    // select specific id using map method which returns brand new array
+
+    ids = data.allItems[type].map(function(current){
+      return current.id;
+    });
+
+    index = ids.indexOf(id);
+    if(index !== -1){
+      //using splice method to remove element
+      data.allItems[type].splice(index, 1);
+    }
+
+  },
+
   calculateBudget: function(){
     // calculate totalincome and expenses
     calculateTotal("exp");
@@ -224,10 +240,10 @@ var ctrlDeleteItem = function(event){
   if(itemId){
     splitID = itemId.split("-");
     type = splitID[0];
-    ID = splitID[1];
+    ID = parseInt(splitID[1]); // convert a string to integer with parseInt method
 
     // delete item from data
-
+    budgetCtrl.deleteItem(type, ID);
     // dlete item from UI
 
 

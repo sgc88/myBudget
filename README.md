@@ -11,6 +11,7 @@
 // update data such as income, expenses and the percentage
 // add event handler- event delegation
 //parentNode property for DOM traversing
+ For more info about event delegation https://javascript.info/event-delegation
 // delete the item from data
 // delete the item from UI
 // re-calculate budget
