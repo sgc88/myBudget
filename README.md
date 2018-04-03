@@ -8,3 +8,10 @@
 
 // convert fields inputs to numbers
 // prevent false input
+// update data such as income, expenses and the percentage
+// add event handler- event delegation
+//parentNode property for DOM traversing
+// delete the item from data
+// delete the item from UI
+// re-calculate budget
+// update UI
