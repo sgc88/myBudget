@@ -147,7 +147,23 @@ var UIController = (function(){
     percentageLabel: ".budget__expenses--percentage",
     container : ".container",
     expensesPercLabel: ".item__percentage"
-  }
+  };
+  var formatNumber = function(num, type){
+    /*
+    + before income and - before expenses
+    exactly 2 decimal points and comma separating the thousands
+    */
+    num = Math.abs(num);
+    num = num.toFixed(2);
+    numSplit = num.split(".");
+    int = numSplit[0];
+    if(int.length > 3){
+      int = int.substr(0, int.length - 3) + "," + int.substr(int.length - 3, int.length);
+    }
+    dec = numSplit[1];
+    return (type === "exp" ? "-" : "+" ) + int + "." + dec;
+
+  };
   return {
     getinput :function(){
       return {
@@ -173,8 +189,8 @@ var UIController = (function(){
 
         // replace the placehoder text with some actaul sata
         newHtml = html.replace("%id%", obj.id);
-        newHtml = newHtml.replace("%value%", obj.value);
-        newHtml = newHtml.replace("%description%", obj.description);
+        newHtml = newHtml.replace("%value%", formatNumber(obj.value, type));
+        newHtml = newHtml.replace("%description%",obj.description);
 
 
 
@@ -233,6 +249,8 @@ var UIController = (function(){
       });
 
     },
+
+
 
 
     getDOMstring: function(){

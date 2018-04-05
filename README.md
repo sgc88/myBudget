@@ -17,3 +17,4 @@
 // re-calculate budget
 // update UI
 // nodeList
+using string methods to manipulate strings
