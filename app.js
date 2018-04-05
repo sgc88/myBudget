@@ -274,6 +274,8 @@ var UIController = (function(){
         cur.classList.toggle("red-focus");
       });
 
+      document.querySelector(DOMstring.inputBtn).classList.toggle("red");
+
 
     },
 
