@@ -216,12 +216,13 @@ var UIController = (function(){
       fieldArr[0].focus();
     },
     displayBudget: function(obj){
-      // var type;
-      // obj.budget > 0 ? type = "inc" : type = "exp";
+      var type;
+      obj.budget > 0 ? type = "inc" : type = "exp";
 
-      document.querySelector(DOMstring.budgetLabel).textContent = obj.budget;
-      document.querySelector(DOMstring.incomeLabel).textContent = obj.totalInc;
-      document.querySelector(DOMstring.expensesLabel).textContent = obj.totalExp;
+
+      document.querySelector(DOMstring.budgetLabel).textContent = formatNumber(obj.budget, type);
+      document.querySelector(DOMstring.incomeLabel).textContent = formatNumber(obj.totalInc, "inc");
+      document.querySelector(DOMstring.expensesLabel).textContent = formatNumber(obj.totalExp, "exp");
 
       if(obj.percentage > 0){
         document.querySelector(DOMstring.percentageLabel).textContent = obj.percentage + "%";
