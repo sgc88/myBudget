@@ -18,3 +18,4 @@
 // update UI
 // nodeList
 using string methods to manipulate strings
+display current month and year by using date object 
