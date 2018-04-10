@@ -18,4 +18,5 @@
 // update UI
 // nodeList
 using string methods to manipulate strings
-display current month and year by using date object 
+display current month and year by using date object
+I followed Udemy courses to complete this project. For more details please check out Jonas Schmedtmann JS tutorials on Udemy.
